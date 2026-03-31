@@ -1,0 +1,14 @@
+# Reports (generated at runtime)
+reports/
+ 
+# Jenkins workspace artifacts
+*.log
+ 
+# Python
+__pycache__/
+*.pyc
+.env
+ 
+# OS
+.DS_Store
+Thumbs.db

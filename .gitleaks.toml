@@ -1,0 +1,61 @@
+# .gitleaks.toml
+# Gitleaks configuration for Secret Leak Detection Pipeline
+ 
+title = "Secret Leak Detection - Gitleaks Config"
+ 
+[extend]
+# Extend default rules
+useDefault = true
+ 
+# ---------------------------------------------------------------
+# Custom Rules (extend beyond Gitleaks defaults)
+# ---------------------------------------------------------------
+[[rules]]
+id          = "custom-generic-api-key"
+description = "Generic API Key pattern"
+regex       = '''(?i)(api[_-]?key|apikey)\s*[:=]\s*['\"]?([A-Za-z0-9_\-]{20,})['\"]?'''
+tags        = ["api", "key", "generic"]
+severity    = "HIGH"
+ 
+[[rules]]
+id          = "custom-db-password"
+description = "Database password in config"
+regex       = '''(?i)(db[_-]?pass(word)?|database[_-]?pass(word)?)\s*[:=]\s*['\"]?([^\s'"]{8,})['\"]?'''
+tags        = ["database", "password"]
+severity    = "HIGH"
+ 
+[[rules]]
+id          = "custom-private-key-header"
+description = "Private key header"
+regex       = '''-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----'''
+tags        = ["key", "private"]
+severity    = "CRITICAL"
+ 
+# ---------------------------------------------------------------
+# Allowlist — known false positives to skip
+# ---------------------------------------------------------------
+[allowlist]
+description = "Global allowlist"
+ 
+# Skip test/example/fixture files
+paths = [
+    '''tests/fixtures/.*''',
+    '''test/.*\.example.*''',
+    '''docs/.*''',
+    '''\.gitleaks\.toml''',
+    '''README\.md''',
+    '''reports/.*''',
+]
+ 
+# Skip known placeholder/dummy secrets in code
+regexes = [
+    '''EXAMPLE_API_KEY''',
+    '''YOUR_API_KEY_HERE''',
+    '''<YOUR_SECRET>''',
+    '''dummy[_-]?secret''',
+    '''fake[_-]?key''',
+    '''test[_-]?token''',
+]
+ 
+# Skip specific commits (e.g. initial scaffolding commits)
+# commits = ["abc1234"]

@@ -60,10 +60,10 @@ Developer Push
  
 ## Tech Stack
  
-- **Jenkins** — CI/CD pipeline orchestration
-- **Gitleaks** — Secret detection engine
-- **Groovy** — Pipeline scripting (Jenkinsfile)
-- **HTML/CSS** — Security report generation
+- **Jenkins**  CI/CD pipeline orchestration
+- **Gitleaks**  Secret detection engine
+- **Groovy**  Pipeline scripting (Jenkinsfile)
+- **HTML/CSS**  Security report generation
  
 ---
  

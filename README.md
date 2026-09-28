@@ -148,6 +148,6 @@ If the pipeline fails due to detected secrets:
  
 1. **Revoke** the exposed credential immediately
 2. **Rotate** with a new secret from the provider (AWS, GitHub, etc.)
-3. **Remove** from code — use `git filter-repo` to purge from Git history
-4. **Use secrets managers** — environment variables, HashiCorp Vault, AWS Secrets Manager
+3. **Remove** from code, use `git filter-repo` to purge from Git history
+4. **Use secrets managers** environment variables, HashiCorp Vault, AWS Secrets Manager
 5. **Re-run** the pipeline to confirm the issue is resolved

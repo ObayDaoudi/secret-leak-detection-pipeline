@@ -1,4 +1,4 @@
-# 🔐 Secret & Credential Leak Detection Pipeline
+# Secret & Credential Leak Detection Pipeline
  
 A **DevSecOps** CI/CD pipeline that automatically scans your repository for exposed secrets, API keys, and credentials — and blocks insecure builds before they reach production.
  
@@ -6,7 +6,7 @@ Built with **Jenkins** + **Gitleaks**, this project demonstrates a production-re
  
 ---
  
-## 📸 Pipeline Overview
+## Pipeline Overview
  
 ```
 Developer Push
@@ -38,27 +38,27 @@ Developer Push
          │
          ▼
 ┌─────────────────────┐
-│  Fail-Fast Gate     │  ◄── Blocks build if secrets found ❌
+│  Fail-Fast Gate     │  ◄── Blocks build if secrets found
 └─────────────────────┘
 ```
  
 ---
  
-## ✨ Features
+## Features
  
 | Feature | Description |
 |---|---|
-| 🔍 **Multi-pattern scanning** | Detects AWS keys, GitHub tokens, DB passwords, private keys, and more |
-| 🚧 **Fail-fast security gate** | Blocks Jenkins build immediately if secrets are detected |
-| 📊 **HTML security report** | Clean, audit-ready report with findings, severity, file locations |
-| 🔒 **Secret redaction** | Secrets are redacted in reports — safe to share with stakeholders |
-| ⚙️ **Custom rules** | Extend default Gitleaks rules via `.gitleaks.toml` |
-| ✅ **Allowlist support** | Skip known false positives (test fixtures, example files) |
-| 📁 **Artifact archiving** | Reports archived in Jenkins for every build |
+| **Multi-pattern scanning** | Detects AWS keys, GitHub tokens, DB passwords, private keys, and more |
+| **Fail-fast security gate** | Blocks Jenkins build immediately if secrets are detected |
+| **HTML security report** | Clean, audit-ready report with findings, severity, file locations |
+| **Secret redaction** | Secrets are redacted in reports — safe to share with stakeholders |
+| **Custom rules** | Extend default Gitleaks rules via `.gitleaks.toml` |
+| **Allowlist support** | Skip known false positives (test fixtures, example files) |
+| **Artifact archiving** | Reports archived in Jenkins for every build |
  
 ---
  
-## 🛠️ Tech Stack
+## Tech Stack
  
 - **Jenkins** — CI/CD pipeline orchestration
 - **Gitleaks** — Secret detection engine
@@ -67,7 +67,7 @@ Developer Push
  
 ---
  
-## 🚀 Getting Started
+## Getting Started
  
 ### Prerequisites
  
@@ -97,21 +97,21 @@ git clone https://github.com/<your-username>/secret-leak-detection-pipeline.git
  
 ---
  
-## 📁 Project Structure
+## Project Structure
  
 ```
 secret-leak-detection/
 ├── Jenkinsfile              # Main pipeline definition
 ├── .gitleaks.toml           # Custom rules & allowlist config
 ├── demo/
-│   ├── safe-config.py       # ✅ Example of secure secret handling
-│   └── unsafe-config.py     # ❌ Example that triggers the scanner (demo only)
+│   ├── safe-config.py       # Example of secure secret handling
+│   └── unsafe-config.py     # Example that triggers the scanner
 └── README.md
 ```
  
 ---
  
-## 🔧 Configuration
+## Configuration
  
 Edit `.gitleaks.toml` to:
 - **Add custom rules** for patterns specific to your stack
@@ -131,7 +131,7 @@ regexes = [
  
 ---
  
-## 📊 Report Example
+## Report Example
  
 The pipeline generates a clean HTML report for every build, including:
  
@@ -142,7 +142,7 @@ The pipeline generates a clean HTML report for every build, including:
  
 ---
  
-## 🛡️ Remediation Guide
+## Remediation Guide
  
 If the pipeline fails due to detected secrets:
  
@@ -151,24 +151,3 @@ If the pipeline fails due to detected secrets:
 3. **Remove** from code — use `git filter-repo` to purge from Git history
 4. **Use secrets managers** — environment variables, HashiCorp Vault, AWS Secrets Manager
 5. **Re-run** the pipeline to confirm the issue is resolved
- 
----
- 
-## 📌 Related Project
- 
-> **[CI/CD Security Risk Prevention & Early-Detection Platform](https://github.com/<your-username>/cicd-security-platform)**
-> Multi-layer Docker image vulnerability scanning with fail-fast Jenkins gates and real-time SMTP alerting.
- 
----
- 
-## 👤 Author
- 
-**Your Name**
-DevOps & Cloud Engineer
-[LinkedIn](https://linkedin.com/in/yourprofile) · [GitHub](https://github.com/yourusername)
- 
----
- 
-## 📄 License
- 
-MIT License — feel free to use, modify, and contribute.
